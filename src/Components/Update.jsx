@@ -89,7 +89,7 @@ function Update() {
               <Form.Label>Phone</Form.Label>
               <Form.Control
                 type="phone"
-                placeholder="Name"
+                placeholder="Number"
                 autoFocus
                 defaultValue={contact.mobile}
                 onChange={(e) =>

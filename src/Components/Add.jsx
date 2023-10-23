@@ -73,7 +73,7 @@ function Add() {
               <Form.Label>Phone</Form.Label>
               <Form.Control
                 type="phone"
-                placeholder="Name"
+                placeholder="Number"
                 autoFocus
                 onChange={(e) =>
                   setContact({ ...contact, mobile: e.target.value })
