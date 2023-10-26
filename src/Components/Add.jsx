@@ -5,6 +5,8 @@ import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import { uploadContact } from "../services/allAPI";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Add() {
 
@@ -28,13 +30,13 @@ function Add() {
     const { name, mobile, email, address, urlImg } = contact;
 
     if (!name || !mobile || !email || !address || !urlImg) {
-      alert("Please Fill the Form Completely..!");
+      toast.warning("Please Fill the Form Completely..!");
     } else {
       // make api call uploadContact
       const response = await uploadContact(contact);
       console.log(response);
       if (response.status >= 200 && response.status < 300) {
-        alert(`Contact uploaded Successfully!!!`);
+        toast.success(`Contact uploaded Successfully!!!`);
         setContact({
           name: "",
           mobile: "",
@@ -44,9 +46,9 @@ function Add() {
         });
         handleClose();
         console.log(response.data);
-        navigate("/contact");
+        // navigate("/contact");
       } else {
-        alert(`Can't perform the Operation now. Please try after some time..`);
+        toast.error(`Can't perform the Operation now. Please try after some time..`);
       }
     }
   };
@@ -134,6 +136,12 @@ function Add() {
           </Button>
         </Modal.Footer>
       </Modal>
+
+
+      <ToastContainer
+      position="top-center"
+      autoClose={2000}
+      />
     </>
   );
 }

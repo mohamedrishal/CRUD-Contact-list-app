@@ -4,6 +4,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Image from "react-bootstrap/Image";
 import { deleteAContact, getAllContacts } from "../services/allAPI";
 import { Link } from "react-router-dom";
+import { toast,ToastContainer } from "react-toastify";
 
 function ContactCard() {
   // Modal {
@@ -28,6 +29,8 @@ function ContactCard() {
     // make api call
     if(confirmed){
       const response = await deleteAContact(id);
+      console.log(response);
+      toast.error('Deleted..')
     }
   };
 
@@ -70,6 +73,10 @@ function ContactCard() {
       )}
 
       {/* Modal */}
+      <ToastContainer
+      position="top-center"
+      autoClose={2000}
+      />
     </div>
   );
 }

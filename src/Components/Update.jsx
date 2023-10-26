@@ -6,6 +6,7 @@ import Modal from "react-bootstrap/Modal";
 import { getAContacts, updateContact } from "../services/allAPI";
 import { useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { toast,ToastContainer } from "react-toastify";
 
 function Update() {
   const { id } = useParams();
@@ -34,16 +35,17 @@ function Update() {
     const { name, mobile, email, address, urlImg } = contact;
 
     if (!name || !mobile || !email || !address || !urlImg) {
-      alert("Please Fill the Form Completely..!");
+      toast.warning("Please Fill the Form Completely..!");
     } else {
       const response = await updateContact(id, contact);
       if (response.status >= 200 && response.status < 300) {
-        alert(`Updated Successfully!!!`);
+        toast.success(`Updated Successfully!!!`);
         setContact(response.data);
         console.log(response.data);
-        navigate("/contact");
+        handleClose()
+        // navigate("/contact");
       } else {
-        alert(`Can't perform the Operation now. Please try after some time..`);
+        toast.error(`Can't perform the Operation now. Please try after some time..`);
       }
     }
   };
@@ -148,6 +150,12 @@ function Update() {
           </Button>
         </Modal.Footer>
       </Modal>
+
+      <ToastContainer
+      position="top-center"
+      autoClose={2000}
+      />
+      
     </div>
   );
 }
