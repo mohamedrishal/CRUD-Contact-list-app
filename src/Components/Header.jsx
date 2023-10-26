@@ -8,20 +8,20 @@ function Header() {
       <Nav
         className="d-flex justify-content-around align-items-center "
         variant="tabs"
-        defaultActiveKey=""
+        defaultActiveKey="/home"
       >
         <Nav.Item className="w-25 text-center">
-          <Link className="text-decoration-none " to={"/home"}>
+          <Link className="text-decoration-none " to={"/"}>
             <Nav.Link className=" fs-5 p-2
-             mt-2 " href="/home">
+             mt-2 " href="/">
               Add <i class="fa-solid fa-square-plus ms-2"></i>
             </Nav.Link>
           </Link>
         </Nav.Item>
         <Nav.Item className="w-25 text-center">
-          <Link className="text-decoration-none" to={"/"}>
+          <Link className="text-decoration-none" to={"/contact"}>
             <Nav.Link className=" fs-5 p-2
-             mt-2 " href="/">
+             mt-2 " href="/home">
               Contact <i class="fa-regular fa-address-card ms-2"></i>
             </Nav.Link>
           </Link>
