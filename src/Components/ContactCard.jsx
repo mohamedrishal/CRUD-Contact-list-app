@@ -24,8 +24,11 @@ function ContactCard() {
   console.log(allContacts);
 
   const removeContact = async (id) => {
+    const confirmed = window.confirm("Are You sure You Want to Delete this item? ")
     // make api call
-    const response = await deleteAContact(id);
+    if(confirmed){
+      const response = await deleteAContact(id);
+    }
   };
 
   return (
@@ -63,7 +66,7 @@ function ContactCard() {
           </Card>
         ))
       ) : (
-        <p className="fw-bolder fs-5 text-danger">Nothing to display!!!</p>
+       <div style={{height:"90vh"}} className="d-flex align-items-center justify-content-center"> <p className="fw-bolder fs-2  text-danger">Contact List is Empty!!!</p></div>
       )}
 
       {/* Modal */}

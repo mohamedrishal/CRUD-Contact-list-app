@@ -41,7 +41,7 @@ function Update() {
         alert(`Updated Successfully!!!`);
         setContact(response.data);
         console.log(response.data);
-        navigate("/contact");
+        navigate("/");
       } else {
         alert(`Can't perform the Operation now. Please try after some time..`);
       }
@@ -60,7 +60,7 @@ function Update() {
 
       <Link
         style={{ top: "70vh", left: "40vh" }}
-        to={`/contact`}
+        to={`/`}
         className="btn border me-4 position-absolute"
       >
         <i class="fa-solid fa-arrow-left"> </i> Back to Contact

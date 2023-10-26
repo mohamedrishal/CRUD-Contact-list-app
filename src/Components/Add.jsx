@@ -4,8 +4,11 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import { uploadContact } from "../services/allAPI";
+import { useNavigate } from "react-router-dom";
 
 function Add() {
+  const navigate = useNavigate();
+
   const [contact, setContact] = useState({
     name: "",
     mobile: "",
@@ -38,6 +41,7 @@ function Add() {
           urlImg: "",
         });
         handleClose();
+        navigate("/");
         console.log(response.data);
       } else {
         alert(`Can't perform the Operation now. Please try after some time..`);
@@ -48,9 +52,9 @@ function Add() {
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
-      <i class="fa-solid fa-user-plus fa-beat-fade fa-lg p-4"></i>
+        <i class="fa-solid fa-user-plus fa-beat-fade fa-lg p-4"></i>
       </Button>
-
+      
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Add Contact Details</Modal.Title>
@@ -72,7 +76,7 @@ function Add() {
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Phone</Form.Label>
               <Form.Control
-                type="phone"
+                type="number"
                 placeholder="Number"
                 autoFocus
                 onChange={(e) =>
