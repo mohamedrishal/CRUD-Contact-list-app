@@ -114,7 +114,20 @@ function Add() {
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Group controlId="formFile" className="mb-3">
+              <Form.Label>Upload a Photo</Form.Label>
+              <Form.Control
+                type="file"
+                onChange={(e) =>
+                  setContact({
+                    ...contact,
+                    urlImg: URL.createObjectURL(e.target.files[0]),
+                  })
+                }
+              />
+            </Form.Group>
+
+            {/* <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Your Photo URl</Form.Label>
               <Form.Control
                 type="text"
@@ -124,7 +137,7 @@ function Add() {
                   setContact({ ...contact, urlImg: e.target.value })
                 }
               />
-            </Form.Group>
+            </Form.Group> */}
           </Form>
         </Modal.Body>
         <Modal.Footer>
@@ -142,6 +155,7 @@ function Add() {
       position="top-center"
       autoClose={2000}
       />
+      
     </>
   );
 }
