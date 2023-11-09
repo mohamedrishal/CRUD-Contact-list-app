@@ -2,8 +2,8 @@ import "./App.css";
 import Header from "./Components/Header";
 import {Route, Routes} from 'react-router-dom';
 import Home from "./Pages/Home";
-import Contact from "./Pages/Contact";
 import Update from "./Components/Update";
+import AddPage from "./Pages/AddPage";
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       <Header/>
       <Routes>
         <Route path='/' element={<Home/>} />
-        <Route path='/contact' element={<Contact/>} />
+        <Route path='/add' element={<AddPage/>} />
         <Route path="update/:id" element={<Update />}/>
       </Routes>
 
